@@ -29,9 +29,10 @@ for page in range(2):
     for phone in phones:
         try:
             phone_url = phone.find('div', {'class': 'title'}).find('a')['href']
+            title, price, seller, ram, memory = parse_phone(phone_url)
         except:
             continue
-        title, price, seller, ram, memory = parse_phone(phone_url)
+
         phone_dict = {'title': title, 'price': price, 'seller': seller, 'ram': ram, 'memory': memory}
         result_phones.append(phone_dict)
         if len(result_phones) == 10:
