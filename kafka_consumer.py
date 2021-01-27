@@ -26,8 +26,6 @@ for message in consumer:
     single_insert(conn, query)
     print(message)
 
-curs = conn.cursor()
-curs.execute("CREATE INDEX ctn_index ON BLACKLIST(ctn);")
-conn.commit()
-curs.close()
+
+single_insert(conn,"CREATE INDEX ctn_index ON BLACKLIST(ctn);")
 print('end')
