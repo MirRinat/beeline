@@ -26,6 +26,9 @@ for message in consumer:
     single_insert(conn, query)
     print(message)
 
+try:
+    single_insert(conn,"CREATE INDEX ctn_index ON BLACKLIST(ctn);")
+except:
+    pass
 
-single_insert(conn,"CREATE INDEX ctn_index ON BLACKLIST(ctn);")
 print('end')
